@@ -6,14 +6,12 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.input.KeyStroke;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Game {
 
     private Screen screen;
-    private int x = 10;
-    private int y = 10;
+    private Hero hero;
 
     public Game() {
         try {
@@ -24,6 +22,9 @@ public class Game {
             this.screen.startScreen();
             this.screen.doResizeIfNecessary();
 
+
+            this.hero = new Hero(10, 10);
+
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -31,25 +32,23 @@ public class Game {
 
     private void draw() throws IOException {
         this.screen.clear();
-        this.screen.setCharacter(x, y, new TextCharacter('X'));
+        hero.draw(this.screen);
         this.screen.refresh();
     }
 
     private void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowUp:
-                y -= 1;
-                if (y < 0) y = 0;
+                hero.moveUp();
                 break;
             case ArrowDown:
-                y += 1;
+                hero.moveDown();
                 break;
             case ArrowLeft:
-                x -= 1;
-                if (x < 0) x = 0;
+                hero.moveLeft();
                 break;
             case ArrowRight:
-                x += 1;
+                hero.moveRight();
                 break;
             default:
                 System.out.println(key);
