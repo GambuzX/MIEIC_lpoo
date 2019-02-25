@@ -66,7 +66,7 @@ public class Arena {
         ArrayList<Coin> coins = new ArrayList<>();
 
         int added = 0;
-        while (added < 5) {
+        while (added < 10) {
             Position new_position = new Position ( random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
 
             if (!coinAtPosition(new_position)) {
