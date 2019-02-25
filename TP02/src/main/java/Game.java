@@ -1,4 +1,6 @@
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
@@ -26,7 +28,7 @@ public class Game {
 
     private void draw() throws IOException {
         this.screen.clear();
-        arena.draw(this.screen);
+        arena.draw(screen.newTextGraphics());
         this.screen.refresh();
     }
 
