@@ -42,7 +42,11 @@ public class Game {
                     this.screen.close();
                     break;
                 }
-                arena.processKey(key);
+                int status = arena.processKey(key);
+                if (status == -1) {
+                    this.screen.close();
+                    System.out.println("You dieded!!!! :(");
+                }
             }
 
         } catch(IOException e) {

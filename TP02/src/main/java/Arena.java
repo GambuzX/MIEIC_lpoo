@@ -140,6 +140,14 @@ public class Arena {
         }
     }
 
+    private boolean verifyMonsterCollisions(Position position) {
+        for (Monster monster : monsters) {
+            if (monster.getPosition().equals(position))
+                return true;
+        }
+        return false;
+    }
+
     private void retrieveCoins(Position position) {
         for (Coin coin : coins) {
             if (coin.getPosition().equals(position)) {
@@ -149,27 +157,40 @@ public class Arena {
         }
     }
 
-    public void processKey(KeyStroke key) {
+    public int processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowUp:
                 moveHero(hero.moveUp());
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 moveMonsters();
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 break;
+
             case ArrowDown:
                 moveHero(hero.moveDown());
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 moveMonsters();
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 break;
+
             case ArrowLeft:
                 moveHero(hero.moveLeft());
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 moveMonsters();
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 break;
+
             case ArrowRight:
                 moveHero(hero.moveRight());
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 moveMonsters();
+                if (verifyMonsterCollisions(hero.getPosition())) return -1;
                 break;
+
             default:
                 System.out.println(key);
                 break;
         }
+        return 0;
     }
 }
