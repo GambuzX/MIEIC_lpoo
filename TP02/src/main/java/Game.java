@@ -39,12 +39,14 @@ public class Game {
         switch (key.getKeyType()) {
             case ArrowUp:
                 y -= 1;
+                if (y < 0) y = 0;
                 break;
             case ArrowDown:
                 y += 1;
                 break;
             case ArrowLeft:
                 x -= 1;
+                if (x < 0) x = 0;
                 break;
             case ArrowRight:
                 x += 1;
