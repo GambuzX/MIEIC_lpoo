@@ -21,7 +21,7 @@ public class Game {
         this.screen.startScreen();
         this.screen.doResizeIfNecessary();
 
-        arena = new Arena(100, 100);
+        arena = new Arena(12, 12);
     }
 
     private void draw() throws IOException {

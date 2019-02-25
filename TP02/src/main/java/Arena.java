@@ -19,8 +19,15 @@ public class Arena {
         hero.draw(screen);
     }
 
+    private boolean canHeroMove(Position position) {
+        if (position.getX() > 0 && position.getX() < width && position.getY() > 0 && position.getY() < height)
+            return true;
+        return false;
+    }
+
     private void moveHero(Position position) {
-        this.hero.setPosition(position);
+        if (canHeroMove(position))
+            this.hero.setPosition(position);
     }
 
     public void processKey(KeyStroke key) {
