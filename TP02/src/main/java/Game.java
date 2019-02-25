@@ -13,21 +13,16 @@ public class Game {
     private Screen screen;
     private Hero hero;
 
-    public Game() {
-        try {
-            Terminal terminal = new DefaultTerminalFactory().createTerminal();
-            this.screen = new TerminalScreen(terminal);
+    public Game() throws IOException{
+        Terminal terminal = new DefaultTerminalFactory().createTerminal();
+        this.screen = new TerminalScreen(terminal);
 
-            this.screen.setCursorPosition(null);
-            this.screen.startScreen();
-            this.screen.doResizeIfNecessary();
+        this.screen.setCursorPosition(null);
+        this.screen.startScreen();
+        this.screen.doResizeIfNecessary();
 
 
-            this.hero = new Hero(10, 10);
-
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
+        this.hero = new Hero(10, 10);
     }
 
     private void draw() throws IOException {
@@ -36,19 +31,23 @@ public class Game {
         this.screen.refresh();
     }
 
+    private void moveHero(Position position) {
+        this.hero.setPosition(position);
+    }
+
     private void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case ArrowUp:
-                hero.moveUp();
+                moveHero(hero.moveUp());
                 break;
             case ArrowDown:
-                hero.moveDown();
+                moveHero(hero.moveDown());
                 break;
             case ArrowLeft:
-                hero.moveLeft();
+                moveHero(hero.moveLeft());
                 break;
             case ArrowRight:
-                hero.moveRight();
+                moveHero(hero.moveRight());
                 break;
             default:
                 System.out.println(key);
