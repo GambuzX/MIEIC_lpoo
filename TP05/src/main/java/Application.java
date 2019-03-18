@@ -2,17 +2,21 @@
 public class Application {
     public static void main(String[] args) {
         AreaAggregator area_agg = new AreaAggregator();
-        Shape shape1 = new Circle(2);
-        Shape shape2 = new Square(12);
-        Shape shape3 = new Elipse(2, 3);
-        Shape shape4 = new Triangle(2, 4);
-        Shape shape5 = new Rectangle(6, 4);
-
-        area_agg.addShape(shape1);
-        area_agg.addShape(shape2);
-        area_agg.addShape(shape3);
-        area_agg.addShape(shape4);
-        area_agg.addShape(shape5);
+        /*
+        HasArea ele1 = new Circle(2);
+        HasArea ele2 = new Square(12);
+        HasArea ele3 = new Elipse(2, 3);
+        HasArea ele4 = new Triangle(2, 4);
+        HasArea ele5 = new Rectangle(6, 4);
+*/
+        HasArea house = new House(2,2, 12);
+        /*
+        area_agg.addEle(ele1);
+        area_agg.addEle(ele2);
+        area_agg.addEle(ele3);
+        area_agg.addEle(ele4);
+        area_agg.addEle(ele5);*/
+        area_agg.addEle(house);
 
         AreaStringOutputter stringOutputter = new AreaStringOutputter(area_agg);
         AreaXMLOutputter xmlOutputter = new AreaXMLOutputter(area_agg);

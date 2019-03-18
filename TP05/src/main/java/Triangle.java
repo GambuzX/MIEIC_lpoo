@@ -1,4 +1,4 @@
-public class Triangle implements Shape {
+public class Triangle implements AreaShape {
     private double base, height;
 
     public double getBase() {
@@ -17,5 +17,10 @@ public class Triangle implements Shape {
     @Override
     public double getArea() {
         return base * height / 2;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println(this.getClass().getName());
     }
 }
