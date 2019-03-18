@@ -1,3 +1,3 @@
-public class Shape {
-    public double getArea() { return 0; }
+public interface Shape {
+    double getArea();
 }

@@ -1,4 +1,4 @@
-public class Square extends Shape {
+public class Square implements Shape {
     private double side;
 
     public Square(double s) {
@@ -9,6 +9,7 @@ public class Square extends Shape {
         return side;
     }
 
-
-    public double getArea() { return 0; }
+    public double getArea() {
+        return side * side;
+    }
 }

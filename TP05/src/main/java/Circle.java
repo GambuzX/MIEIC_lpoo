@@ -1,4 +1,4 @@
-public class Circle extends Shape {
+public class Circle implements Shape {
     private double radius;
 
     public Circle(double r) {
@@ -7,6 +7,10 @@ public class Circle extends Shape {
 
     public double getRadius() {
         return radius;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
 
 }

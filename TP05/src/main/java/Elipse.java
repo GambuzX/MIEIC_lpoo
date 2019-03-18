@@ -1,4 +1,4 @@
-public class Elipse extends Shape {
+public class Elipse implements Shape {
     private double x_radius, y_radius;
 
     public Elipse(double x, double y) {
@@ -12,5 +12,9 @@ public class Elipse extends Shape {
 
     public double getY_radius() {
         return y_radius;
+    }
+
+    public double getArea() {
+        return Math.PI * x_radius * y_radius;
     }
 }
