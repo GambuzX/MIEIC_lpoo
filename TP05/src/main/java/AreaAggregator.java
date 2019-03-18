@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AreaAggregator {
+public class AreaAggregator implements SumProvider{
     private List<HasArea> area_elements = new ArrayList<>();
 
     public void addEle(HasArea area_ele) {

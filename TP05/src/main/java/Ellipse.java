@@ -1,7 +1,7 @@
-public class Elipse implements AreaShape {
+public class Ellipse implements AreaShape {
     private double x_radius, y_radius;
 
-    public Elipse(double x, double y) {
+    public Ellipse(double x, double y) {
         x_radius = x;
         y_radius = y;
     }
