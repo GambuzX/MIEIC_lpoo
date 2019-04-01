@@ -1,22 +1,31 @@
 package com.aor.refactoring.example5;
 
 public class Turtle {
-    private int row;
-    private int column;
+
+    private class Position {
+        public int column;
+        public int row;
+
+        public Position(int r, int c) {
+            column = c;
+            row = r;
+        }
+    }
+
+    private Position pos;
     private char direction;
 
     public Turtle(int row, int column, char direction) {
-        this.row = row;
-        this.column = column;
+        this.pos = new Position(row, column);
         this.direction = direction;
     }
 
     public int getRow() {
-        return row;
+        return pos.row;
     }
 
     public int getColumn() {
-        return column;
+        return pos.column;
     }
 
     public char getDirection() {
@@ -24,21 +33,33 @@ public class Turtle {
     }
 
     public void execute(char command) {
-        if (command == 'L') { // ROTATE LEFT
-            if (direction == 'N') direction = 'W';
-            else if (direction == 'W') direction = 'S';
-            else if (direction == 'S') direction = 'E';
-            else if (direction == 'E') direction = 'N';
-        } else if (command == 'R') { // ROTATE RIGHT
-            if (direction == 'N') direction = 'E';
-            else if (direction == 'E') direction = 'S';
-            else if (direction == 'S') direction = 'W';
-            else if (direction == 'W') direction = 'N';
-        } else if (command == 'F'){ // MOVE FORWARD
-            if (direction == 'N') row--;
-            if (direction == 'S') row++;
-            if (direction == 'W') column--;
-            if (direction == 'E') column++;
+        if (command == 'L') {
+            rotateLeft();
+        } else if (command == 'R') {
+            rotateRight();
+        } else if (command == 'F'){
+            moveForward();
         }
+    }
+
+    private void rotateLeft() {
+        if (direction == 'N') direction = 'W';
+        else if (direction == 'W') direction = 'S';
+        else if (direction == 'S') direction = 'E';
+        else if (direction == 'E') direction = 'N';
+    }
+
+    private void rotateRight() {
+        if (direction == 'N') direction = 'E';
+        else if (direction == 'E') direction = 'S';
+        else if (direction == 'S') direction = 'W';
+        else if (direction == 'W') direction = 'N';
+    }
+
+    private void moveForward() {
+        if (direction == 'N') pos.row--;
+        if (direction == 'S') pos.row++;
+        if (direction == 'W') pos.column--;
+        if (direction == 'E') pos.column++;
     }
 }

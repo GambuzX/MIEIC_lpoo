@@ -1,11 +1,27 @@
 package com.aor.refactoring.example1;
 
 public class OrderLine {
-    public Product product;
-    public int quantity;
+    private Product product;
+    private int quantity;
 
     public OrderLine(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    double getTotal() {
+        return getProduct().getPrice() * getQuantity();
+    }
+
+    public String toString() {
+        return getProduct().getName() + "(x" + getQuantity() + "): " + (getTotal());
     }
 }
