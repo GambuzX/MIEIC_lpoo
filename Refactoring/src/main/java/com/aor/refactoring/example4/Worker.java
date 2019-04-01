@@ -1,6 +1,6 @@
 package com.aor.refactoring.example4;
 
-public class Worker extends Person implements canLogin{
+public class Worker extends Person {
 
     public Worker(String name, String phone, String username, String password) {
         super(name, phone, username, password);

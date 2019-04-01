@@ -70,7 +70,7 @@ public class Tree {
 
     private Date getLatestAppraisalDate(Date today) {
         Date latestAppraisalDate = this.appraisalDates.size() > 0 ? this.appraisalDates.get(0) : today;
-        
+
         for(Date appraisalDate : this.appraisalDates) {
             if (latestAppraisalDate.before(appraisalDate)) {
                 latestAppraisalDate = appraisalDate;
