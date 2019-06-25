@@ -1,4 +1,4 @@
-# LPOO 2018-2019 :file_folder:
+# Laboratório de Programação Orientada por Objectos 2018-2019 :file_folder:
 
 Exercises solved during practical classes for the LPOO curricular unit.
 
