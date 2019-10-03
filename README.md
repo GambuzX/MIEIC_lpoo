@@ -7,7 +7,7 @@ Exercises solved during practical classes for the LPOO curricular unit.
 
 <br>
 
-**Final Grade: ??**
+**Final Grade: 20**
 
 ### Technologies and Software Used
 * Java
